@@ -19,8 +19,10 @@ if($db){
 		$config = array();
 		//Pulls config information (not currently used)
 		$sql = "SELECT * FROM config";
-		$qry = mysql_query($sql);
-		while($c = mysql_fetch_array($qry)){
+		//$qry = mysql_query($sql);
+		$qry = mysqli_query($con, $sql);
+		//while($c = mysql_fetch_array($qry)){
+		while($c = mysqli_fetch_assoc($qry)){
 			$config[$c['configName']] = $c['configValue'];
 		}
 		
@@ -33,8 +35,10 @@ if($db){
 
 		// SQL call to get corresponding tapID to pinId.
 		$sql = "select id from taps where pinId = '".$PIN."' and active = '1'";
-		$qry = mysql_query($sql);
-		$taps = mysql_fetch_array($qry);
+		//$qry = mysql_query($sql);
+		$qry = mysqli_query($con, $sql);
+		//$taps = mysql_fetch_array($qry);
+		$taps = mysqli_fetch_assoc($qry);
 		//$amount = $PULSE_COUNT / 165;
 		
 		// Sets the amount to be a fraction of a gallon based on 165 ounces per pulse
@@ -48,7 +52,8 @@ if($db){
 
 		// Inserts in to the pours table 
 		$qry = "INSERT INTO pours(tapId, pinId, amountPoured, pulses) values ('".$taps[0]."','".$PIN."','".$amount."','".$PULSE_COUNT."')";
-		mysql_query($qry);
+		//mysql_query($qry);
+		mysqli_query($con, $qry);
 	
 	
 } 

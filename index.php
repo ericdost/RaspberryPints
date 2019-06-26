@@ -274,12 +274,16 @@
 											// Code for new kegs that are not full
                                                                                         $tid = $beer['id'];
                                                                                         $sql = "Select kegId from taps where id=".$tid." limit 1";
-                                                                                        $kegID = mysql_query($sql);
-                                                                                        $kegID = mysql_fetch_array($kegID);
+                                                                                        //$kegID = mysql_query($sql);
+											$kegID = mysqli_query($con, $sql);
+                                                                                        //$kegID = mysql_fetch_array($kegID);
+											$kegID = mysqli_fetch_assoc($kegID);
                                                                                         //echo $kegID[0];
                                                                                         $sql = "SELECT `kegTypes`.`maxAmount` as kVolume FROM  `kegs`,`kegTypes` where  kegs.kegTypeId = kegTypes.id and kegs.id =".$kegID[0]."";
-                                                                                        $kvol = mysql_query($sql);
-                                                                                        $kvol = mysql_fetch_array($kvol);
+                                                                                        //$kvol = mysql_query($sql);
+											$kvol = mysqli_query($con, $sql);
+                                                                                        //$kvol = mysql_fetch_array($kvol);
+											$kvol = mysqli_fetch_assoc($kvol);
                                                                                         $kvol = $kvol[0];
                                                                                         $kegImgClass = "";
                                                                                         if ($beer['startAmount']>=$kvol) {
