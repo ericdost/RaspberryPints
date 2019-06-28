@@ -39,6 +39,28 @@ __Known Bugs:__
 
 __Version History:__
 
+	v2.0.5 (hotfix):
+		- Additional mysql call fixes
+		- Updated documentation
+
+	v2.0.4 (hotfix):
+		- Additional mysql call fixes
+
+	v2.0.3 (hotfix):
+		- Additional mysql call updates and typo fixes
+
+	v2.0.2 (hotfix):
+		- Updated mysql calls to mysqli based on PR from kmasryk
+
+	v2.0.1 (hotfix):
+		- Fixed issue with tapping a keg when not using flow meters
+		- Cleaned up code by adding new functions
+		- Moved the flow meter start up to a service
+		- Resolved issue with starting volume bug
+
+	v2.0.0 (major release):
+		- Added flow meter support
+
 	v1.0.3 (hotfix):
 		- Fixed broken links to (external) official website.
 
