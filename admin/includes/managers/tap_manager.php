@@ -72,7 +72,8 @@ class TapManager{
 		mysqli_query($con, $sql);
 		
 		$sql="UPDATE taps SET active = 0, modifiedDate = NOW() WHERE active = 1 AND tapNumber > $newTapNumber";
-		mysql_query($sql);
+		//mysql_query($sql);
+		mysqli_query($con, $sql);
 	}
 
 	function getTapNumber(){
